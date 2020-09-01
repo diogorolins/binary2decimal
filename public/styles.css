@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 233, 216);
+  font-family: "Roboto", sans-serif;
+  padding: 30px;
+}
+
+header {
+  height: 100px;
+  background-color: rgb(198, 8, 8);
+  border-radius: 4px;
+}
+
+header h1 {
+  color: rgb(241, 233, 216);
+  margin: 25px 20px;
+}
+section {
+  margin-top: 20px;
+  height: 100px;
+  border: 3px solid rgb(198, 8, 8);
+  display: flex;
+  border-radius: 6px;
+}
+footer {
+  height: 100px;
+  background-color: rgb(198, 8, 8);
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: end;
+}
+footer h4 {
+  color: rgb(241, 233, 216);
+  margin-right: 12px;
+  margin-top: 65px;
+}
+.labelText {
+  color: rgb(198, 8, 8);
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 35px;
+}
+
+.inputValue {
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 25px;
+}
+.buttonConvert {
+  margin-left: 40px;
+  margin-top: 25px;
+}
+.result {
+  text-align: center;
+  width: 300px;
+  margin-left: 40px;
+  margin-top: 25px;
+}

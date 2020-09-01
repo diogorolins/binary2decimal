@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary2Decimal</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+      rel="stylesheet" />
+    
+  </head>
+  <body> 
+    <header><h1>Converter Binário para Decimal</h1></header>
+    <section>
+      <div class="labelText">Digite um valor pra conversão</div>
+      <div class="inputValue"><input id="valor" class="form-control form-control-lg" type="text" placeholder="Digite um valor binário..."></div>
+      <div class="buttonConvert"><button type="button" class="btn btn-secondary btn-lg" onclick="convertValue()">Converter</button></div>
+      <div class="result">
+          <div id="resultSet" class="alert alert-dark" role="alert">
+            RESULTADO =
+          </div>
+      </div>
+    </section>
+    <footer><h4>Developed by @diogorolins</h2></footer>
+  </body>
+  </body>
+</html>
+
+<script>
+  function convertValue() {
+    const regExpNotBin = /[^01]/;
+    const valor = document.querySelector("#valor").value;
+    if(regExpNotBin.test(valor) || !valor){
+      document.querySelector("#resultSet").innerHTML = `Valor inválido`
+    } else{
+     getValueFromBackend(valor);  
+    };
+  }
+ 
+ function getValueFromBackend(value){
+   const body = {
+     conversion: 2,
+     value: value
+   }
+  
+   fetch("http://localhost:3000/result", {
+      method: "post",
+      body: JSON.stringify(body) , 
+      headers: new Headers({
+       'Content-Type': 'application/json'
+     })
+   }).then((response)=>{
+     response.json().then(data => {
+       document.querySelector("#resultSet").innerHTML = `RESULTADO = ${data.result}`
+     });
+     
+   })
+ }
+</script>
