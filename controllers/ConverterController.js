@@ -62,7 +62,14 @@ class ConverterController {
   }
 
   convertDecimal2Binary(value) {
-    return 2;
+    let result = "";
+    let newValue = value;
+    while (newValue > 1) {
+      result = result + String(newValue % 2).substr(0, 1);
+      newValue = newValue / 2;
+    }
+
+    return result.split("").reverse().join("");
   }
 }
 module.exports = ConverterController;
